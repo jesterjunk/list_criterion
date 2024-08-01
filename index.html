@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html lang="en" style="background: #353839; overflow-y: scroll;">
+<head>
+    <meta charset="UTF-8">
+    <title>list - criterion</title>
+    <style>
+    body {
+        margin: 20px;
+        color: hsl(60, 30%, 96%);
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+
+    /*  URLS  */
+    a:link,
+    a:visited {color: hsl(190, 81%, 67%); text-decoration: none; outline: none;}
+    a:hover {color: hsl(80, 76%, 53%);}
+    a:active {color: hsl(40, 93%, 51%);}
+    /*  URLS  */
+
+    #table-container > table {
+        border-collapse: collapse;
+    }
+    #table-container > table > thead > tr > th {
+        border: 1px solid #000;
+        padding: 8px;
+    }
+    #table-container > table > tbody > tr > td {
+        border: 1px solid #000;
+        padding: 8px;
+    }
+    </style>
+</head>
+<body>
+
+<!-- <div id="plaintext-data-container"></div> -->
+
+<div id="table-container"></div>
+
+<script>
+
+async function fetchData() {
+
+    try {
+        const response = await fetch('data.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        return data;
+    }
+
+    catch (error) {
+        console.error('There was a problem fetching the data:', error);
+    }
+}
+
+
+fetchData().then(data => {
+
+});
+
+
+function createTable(data) {
+    const table = document.createElement('table');
+    const thead = document.createElement('thead');
+    const tbody = document.createElement('tbody');
+
+    const headers = ['Cover', 'Type', 'Format', 'URL', 'Spine #', 'Title', 'Director', 'Country', 'Year', 'Duration', 'Color', 'Aspect Ratio', 'Language', 'External'];
+    const headerRow = document.createElement('tr');
+
+    headers.forEach(header => {
+        const th = document.createElement('th');
+        th.textContent = header;
+        headerRow.appendChild(th);
+    });
+
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+
+    data.entries.forEach(entry => {
+        const dataRow = document.createElement('tr');
+
+        // Cover (leave empty for now)
+        const coverCell = document.createElement('td');
+        coverCell.textContent = ''; // Empty for now
+        dataRow.appendChild(coverCell);
+
+        const fields = ['type', 'format', 'url', 'spine_#', 'title', 'director', 'country', 'year', 'duration', 'color', 'aspect_ratio', 'language'];
+        fields.forEach(field => {
+            const td = document.createElement('td');
+            td.textContent = entry[field];
+            dataRow.appendChild(td);
+        });
+
+        // External links (icons)
+        const externalCell = document.createElement('td');
+        const externalLinks = entry.external;
+        for (const key in externalLinks) {
+            if (externalLinks[key]) {
+                const icon = document.createElement('img');
+                icon.src = `path_to_icon/${key}.png`; // Replace with actual icon paths
+                icon.alt = key;
+                externalCell.appendChild(icon);
+            }
+        }
+        dataRow.appendChild(externalCell);
+
+        tbody.appendChild(dataRow);
+    });
+
+    table.appendChild(tbody);
+    document.getElementById(`table-container`).appendChild(table);
+}
+
+fetchData().then(data => {
+    if (data && data.entries) {
+        createTable(data);
+    } else {
+        console.error('No entries found in the data.');
+    }
+});
+
+
+</script>
+
+
+</body>
+</html>
