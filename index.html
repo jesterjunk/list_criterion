@@ -5,7 +5,7 @@
     <title>list - criterion</title>
     <style>
     body {
-        margin: 20px;
+        margin: 0;
         color: hsl(60, 30%, 96%);
         font-family: Arial, Helvetica, sans-serif;
         font-size: 0;
@@ -20,32 +20,32 @@
     /*  URLS  */
 
     #table-container > table {
+        margin: 0 auto;
         border-collapse: collapse;
         font-size: 16px;
     }
-    #table-container > table > thead > tr > th {
-        border: 1px solid #000;
-        padding: 8px;
-    }
     #table-container > table > tbody > tr > td {
-        border: 1px solid #000;
-        padding: 8px;
+        padding: 6px;
+        border-left: none;
+        border-right: none;
     }
-
-    #table-container > table > tbody > tr > td.cover {
-        padding: 0;
+    #table-container > table > tbody > tr:not(:last-of-type) > td {
+        border-bottom: 3px solid #000;
     }
 
     #table-container > table > tbody > tr > td.cover img {
         display: block;
+        border: 3px solid #000;
+        border-radius: 6px;
     }
+
 
     td.type,
     td.spine_\# {
         text-align: center;
     }
     td.external_icons {
-        padding: 0 !important;
+/*        padding: 8px !important;*/
     }
     td.external_icons div {
         display: flex;
@@ -99,12 +99,41 @@ function cover(dataRow, entry) {
 }
 
 
-// type
-function type(dataRow, entry) {
+// title
+function title(dataRow, entry) {
+
+    const a = document.createElement('a');
+          a.href = entry.url;
+          a.textContent = entry.title;
+          a.style.fontWeight = `bold`;
+          a.target = `_blank`;
 
     const td = document.createElement('td');
-          td.textContent = entry.type;
-          td.className = `type`;
+          td.className = `title`;
+          td.appendChild(a);
+          td.innerHTML += `
+${entry.director ? `<br><br>Directed by ${entry.director}` : ``}
+`;
+
+    dataRow.appendChild(td);
+}
+
+
+// more_info
+function more_info(dataRow, entry) {
+
+    const td = document.createElement('td');
+          td.innerHTML = `
+${entry.type ? `${entry.type}` : ``}
+${entry.country ? `<br><br>${entry.country.replace(/,$/, ``)}` : ``}
+${entry.year ? `<br>${entry.year}` : ``}
+${entry.duration_minutes ? `<br>\n${entry.duration_minutes} minutes` : ``}
+${entry.color ? `<br>\n${entry.color}` : ``}
+${entry.aspect_ratio ? `<br>\n${entry.aspect_ratio}` : ``}
+${entry.language ? `<br>\n${entry.language}` : ``}
+${entry[`spine_#`] ? `<br>\n<b>Spine #${entry[`spine_#`]}</b>` : ``}
+`;
+          td.className = `more_info`;
 
     dataRow.appendChild(td);
 }
@@ -114,130 +143,9 @@ function type(dataRow, entry) {
 function format(dataRow, entry) {
 
     const td = document.createElement('td');
-          td.innerHTML = entry.format.replace(`, `, `<br><br>`).replace(` SRP`, `<br>SRP`).replace(`DVD `, `DVD<br>`).replace(`BLU-RAY `, `BLU-RAY<br>`).replace(`DISC `, `DISC<br>`);
+          td.innerHTML = entry.format.replace(`, `, `<br><br><br>`).replace(` SRP`, `<br>SRP`).replace(`DVD `, `DVD<br>`).replace(`BLU-RAY `, `BLU-RAY<br>`).replace(`DISC `, `DISC<br>`);
           td.className = `format`;
           td.style.whiteSpace = `pre`;
-          td.style.textAlign = `center`;
-
-    dataRow.appendChild(td);
-}
-
-
-// url
-// function url(dataRow, entry) {
-
-//     const td = document.createElement('td');
-//           td.textContent = entry.url;
-//           td.className = `url`;
-
-//     dataRow.appendChild(td);
-// }
-
-
-// spine_#
-function spine(dataRow, entry) {
-
-    const td = document.createElement('td');
-          td.textContent = entry['spine_#'];
-          td.className = `spine_#`;
-
-    dataRow.appendChild(td);
-}
-
-
-// title
-function title(dataRow, entry) {
-
-    const a = document.createElement('a');
-          a.href = entry.url;
-          a.textContent = entry.title;
-          a.target = `_blank`;
-
-    const td = document.createElement('td');
-          td.className = `title`;
-          td.appendChild(a);
-
-    dataRow.appendChild(td);
-}
-
-// director
-function director(dataRow, entry) {
-
-    const td = document.createElement('td');
-          td.textContent = entry.director;
-          td.className = `director`;
-          td.style.textAlign = `center`;
-
-    dataRow.appendChild(td);
-}
-
-
-// country
-function country(dataRow, entry) {
-
-    const td = document.createElement('td');
-          td.textContent = entry.country.replace(/,$/, ``);
-          td.className = `country`;
-          td.style.textAlign = `center`;
-
-    dataRow.appendChild(td);
-}
-
-
-// year
-function year(dataRow, entry) {
-
-    const td = document.createElement('td');
-          td.textContent = entry.year;
-          td.className = `year`;
-          td.style.textAlign = `center`;
-
-    dataRow.appendChild(td);
-}
-
-
-// duration_minutes
-function duration_minutes(dataRow, entry) {
-
-    const td = document.createElement('td');
-          td.textContent = entry.duration_minutes;
-          td.className = `duration_minutes`;
-          td.style.textAlign = `center`;
-
-    dataRow.appendChild(td);
-}
-
-
-// color
-function color(dataRow, entry) {
-
-    const td = document.createElement('td');
-          td.textContent = entry.color;
-          td.className = `color`;
-          td.style.textAlign = `center`;
-
-    dataRow.appendChild(td);
-}
-
-
-// aspect_ratio
-function aspect_ratio(dataRow, entry) {
-
-    const td = document.createElement('td');
-          td.textContent = entry.aspect_ratio;
-          td.className = `aspect_ratio`;
-          td.style.textAlign = `center`;
-
-    dataRow.appendChild(td);
-}
-
-
-// language
-function language(dataRow, entry) {
-
-    const td = document.createElement('td');
-          td.textContent = entry.language;
-          td.className = `language`;
           td.style.textAlign = `center`;
 
     dataRow.appendChild(td);
@@ -283,37 +191,29 @@ function external(dataRow, entry) {
 
 function createTable(data) {
     const table = document.createElement('table');
-    const thead = document.createElement('thead');
+    // const thead = document.createElement('thead');
     const tbody = document.createElement('tbody');
 
-    const headers = ['Cover', 'Type', 'Format', 'Spine #', 'Title', 'Director', 'Country', 'Year', 'Duration<br><span>minutes</span>', 'Color', 'Aspect Ratio', 'Language', 'External'];
-    const headerRow = document.createElement('tr');
+    // const headers = ['Type', 'Cover', '', '', 'Format', 'External'];
+    // const headerRow = document.createElement('tr');
 
-    headers.forEach(header => {
-        const th = document.createElement('th');
-        th.innerHTML = header;
-        headerRow.appendChild(th);
-    });
+    // headers.forEach(header => {
+    //     const th = document.createElement('th');
+    //     th.innerHTML = header;
+    //     headerRow.appendChild(th);
+    // });
 
-    thead.appendChild(headerRow);
-    table.appendChild(thead);
+    // thead.appendChild(headerRow);
+    // table.appendChild(thead);
 
     data.entries.forEach(entry => {
 
         const dataRow = document.createElement('tr');
 
         cover(dataRow, entry);
-        type(dataRow, entry);
-        format(dataRow, entry);
-        spine(dataRow, entry);
         title(dataRow, entry);
-        director(dataRow, entry);
-        country(dataRow, entry);
-        year(dataRow, entry);
-        duration_minutes(dataRow, entry);
-        color(dataRow, entry);
-        aspect_ratio(dataRow, entry);
-        language(dataRow, entry);
+        more_info(dataRow, entry);
+        format(dataRow, entry);
         external(dataRow, entry);
 
         tbody.appendChild(dataRow);
