@@ -8,6 +8,7 @@
         margin: 20px;
         color: hsl(60, 30%, 96%);
         font-family: Arial, Helvetica, sans-serif;
+        font-size: 0;
     }
 
 
@@ -20,6 +21,7 @@
 
     #table-container > table {
         border-collapse: collapse;
+        font-size: 16px;
     }
     #table-container > table > thead > tr > th {
         border: 1px solid #000;
@@ -30,19 +32,30 @@
         padding: 8px;
     }
 
+    #table-container > table > tbody > tr > td.cover {
+        padding: 0;
+    }
+
+    #table-container > table > tbody > tr > td.cover img {
+        display: block;
+    }
+
     td.type,
     td.spine_\# {
         text-align: center;
     }
-    div.external_icons {
+    td.external_icons {
+        padding: 0 !important;
+    }
+    td.external_icons div {
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+        flex-direction: column;
+/*        flex-wrap: wrap;*/
         justify-content: center;
         align-items: center;
     }
-    div.external_icons img {
-        margin: 4px;
+    td.external_icons div img {
+        margin: 1px;
         width: 32px;
     }
     </style>
@@ -70,17 +83,201 @@ async function fetchData() {
 }
 
 
-function icons(key) {
+// cover
+function cover(dataRow, entry) {
+
+    const td = document.createElement('td');
+          td.className = `cover`;
+
+    const cover = document.createElement('img');
+          cover.loading = `lazy`;
+          cover.src     = `covers/${entry.cover.thumbnail.split('/')[4]}/thumbnail/${entry.cover.thumbnail.split('/')[6]}`;
+
+    td.appendChild(cover)
+
+    dataRow.appendChild(td);
+}
+
+
+// type
+function type(dataRow, entry) {
+
+    const td = document.createElement('td');
+          td.textContent = entry.type;
+          td.className = `type`;
+
+    dataRow.appendChild(td);
+}
+
+
+// format
+function format(dataRow, entry) {
+
+    const td = document.createElement('td');
+          td.innerHTML = entry.format.replace(`, `, `<br><br>`).replace(` SRP`, `<br>SRP`).replace(`DVD `, `DVD<br>`).replace(`BLU-RAY `, `BLU-RAY<br>`).replace(`DISC `, `DISC<br>`);
+          td.className = `format`;
+          td.style.whiteSpace = `pre`;
+          td.style.textAlign = `center`;
+
+    dataRow.appendChild(td);
+}
+
+
+// url
+// function url(dataRow, entry) {
+
+//     const td = document.createElement('td');
+//           td.textContent = entry.url;
+//           td.className = `url`;
+
+//     dataRow.appendChild(td);
+// }
+
+
+// spine_#
+function spine(dataRow, entry) {
+
+    const td = document.createElement('td');
+          td.textContent = entry['spine_#'];
+          td.className = `spine_#`;
+
+    dataRow.appendChild(td);
+}
+
+
+// title
+function title(dataRow, entry) {
+
+    const a = document.createElement('a');
+          a.href = entry.url;
+          a.textContent = entry.title;
+          a.target = `_blank`;
+
+    const td = document.createElement('td');
+          td.className = `title`;
+          td.appendChild(a);
+
+    dataRow.appendChild(td);
+}
+
+// director
+function director(dataRow, entry) {
+
+    const td = document.createElement('td');
+          td.textContent = entry.director;
+          td.className = `director`;
+          td.style.textAlign = `center`;
+
+    dataRow.appendChild(td);
+}
+
+
+// country
+function country(dataRow, entry) {
+
+    const td = document.createElement('td');
+          td.textContent = entry.country.replace(/,$/, ``);
+          td.className = `country`;
+          td.style.textAlign = `center`;
+
+    dataRow.appendChild(td);
+}
+
+
+// year
+function year(dataRow, entry) {
+
+    const td = document.createElement('td');
+          td.textContent = entry.year;
+          td.className = `year`;
+          td.style.textAlign = `center`;
+
+    dataRow.appendChild(td);
+}
+
+
+// duration_minutes
+function duration_minutes(dataRow, entry) {
+
+    const td = document.createElement('td');
+          td.textContent = entry.duration_minutes;
+          td.className = `duration_minutes`;
+          td.style.textAlign = `center`;
+
+    dataRow.appendChild(td);
+}
+
+
+// color
+function color(dataRow, entry) {
+
+    const td = document.createElement('td');
+          td.textContent = entry.color;
+          td.className = `color`;
+          td.style.textAlign = `center`;
+
+    dataRow.appendChild(td);
+}
+
+
+// aspect_ratio
+function aspect_ratio(dataRow, entry) {
+
+    const td = document.createElement('td');
+          td.textContent = entry.aspect_ratio;
+          td.className = `aspect_ratio`;
+          td.style.textAlign = `center`;
+
+    dataRow.appendChild(td);
+}
+
+
+// language
+function language(dataRow, entry) {
+
+    const td = document.createElement('td');
+          td.textContent = entry.language;
+          td.className = `language`;
+          td.style.textAlign = `center`;
+
+    dataRow.appendChild(td);
+}
+
+
+// external
+function external(dataRow, entry) {
 
     var icons = {
         "imdb": "imdb.svg",
         "wikipedia": "wikipedia.svg",
-        "wikidata": "wikidata.svg",
-        "icheckmovies": "",
-        "letterboxd": ""
+        "wikidata": "wikidata_white.svg",
+        "icheckmovies": "icheckmovies_32x32.png",
+        "letterboxd": "letterboxd-decal-dots-neg-rgb-optimized.svg"
     }
 
-    return icons[key];
+    // External links (icons)
+    const externalCell = document.createElement('td');
+          externalCell.className = `external_icons`;
+
+    const externalCellDiv = document.createElement('div');
+          externalCell.appendChild(externalCellDiv);
+
+    for ([key, value] of Object.entries(entry.external)) {
+        if (value) {
+            const icon_a = document.createElement('a');
+                  icon_a.href = value;
+                  icon_a.target = `_blank`;
+
+            const icon_img = document.createElement('img');
+                  icon_img.src = `icons/${icons[key]}`; // Replace with actual icon paths
+                  icon_img.alt = key;
+
+            icon_a.appendChild(icon_img);
+            externalCellDiv.appendChild(icon_a);
+        }
+    }
+
+    dataRow.appendChild(externalCell);
 }
 
 
@@ -89,7 +286,7 @@ function createTable(data) {
     const thead = document.createElement('thead');
     const tbody = document.createElement('tbody');
 
-    const headers = ['Cover', 'Type', 'Format', 'URL', 'Spine #', 'Title', 'Director', 'Country', 'Year', 'Duration<br><span>minutes</span>', 'Color', 'Aspect Ratio', 'Language', 'External'];
+    const headers = ['Cover', 'Type', 'Format', 'Spine #', 'Title', 'Director', 'Country', 'Year', 'Duration<br><span>minutes</span>', 'Color', 'Aspect Ratio', 'Language', 'External'];
     const headerRow = document.createElement('tr');
 
     headers.forEach(header => {
@@ -102,47 +299,22 @@ function createTable(data) {
     table.appendChild(thead);
 
     data.entries.forEach(entry => {
+
         const dataRow = document.createElement('tr');
 
-        // Cover (leave empty for now)
-        const coverCell = document.createElement('td');
-        coverCell.textContent = ''; // Empty for now
-        dataRow.appendChild(coverCell);
-
-        const fields = ['type', 'format', 'url', 'spine_#', 'title', 'director', 'country', 'year', 'duration', 'color', 'aspect_ratio', 'language'];
-        fields.forEach(field => {
-
-            if (field == `country`) {
-                entry[field] = entry[field].replace(/,$/, ``);
-            }
-
-            const td = document.createElement('td');
-            td.textContent = entry[field];
-            td.className = field;
-            dataRow.appendChild(td);
-        });
-
-        // External links (icons)
-        const externalCell = document.createElement('td');
-        const externalCellDiv = document.createElement('div');
-              externalCellDiv.className = `external_icons`;
-              externalCell.appendChild(externalCellDiv);
-        const externalLinks = entry.external;
-        for ([key, value] of Object.entries(externalLinks)) {
-            if (value) {
-                const icon_a = document.createElement('a');
-                      icon_a.href = value;
-                      icon_a.target = `_blank`;
-
-                const icon_img = document.createElement('img');
-                      icon_img.src = `icons/${icons(key)}`; // Replace with actual icon paths
-                      icon_img.alt = key;
-
-                icon_a.appendChild(icon_img);
-                externalCellDiv.appendChild(icon_a);
-            }
-        }
-        dataRow.appendChild(externalCell);
+        cover(dataRow, entry);
+        type(dataRow, entry);
+        format(dataRow, entry);
+        spine(dataRow, entry);
+        title(dataRow, entry);
+        director(dataRow, entry);
+        country(dataRow, entry);
+        year(dataRow, entry);
+        duration_minutes(dataRow, entry);
+        color(dataRow, entry);
+        aspect_ratio(dataRow, entry);
+        language(dataRow, entry);
+        external(dataRow, entry);
 
         tbody.appendChild(dataRow);
     });

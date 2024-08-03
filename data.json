@@ -40,7 +40,7 @@
         },
         {
             "type": "film",
-            "format": "BLU-RAY 1 DISC SRP $39.95, DVD 1 DISC $29.95",
+            "format": "BLU-RAY 1 DISC SRP $39.95, DVD 1 DISC SRP $29.95",
             "url": "https://www.criterion.com/films/27910-3-10-to-yuma",
             "cover": {
                 "artist": "Gregory Manchess",
@@ -53,10 +53,10 @@
             "director": "Delmer Daves",
             "country": "United States,",
             "year": "1957",
-            "duration_minutes": "",
-            "color": "",
-            "aspect_ratio": "",
-            "language": "",
+            "duration_minutes": "92",
+            "color": "Black & White",
+            "aspect_ratio": "1.85:1",
+            "language": "English",
             "spine_#": "657",
             "external": {
                 "imdb": "https://www.imdb.com/title/tt0050086/",
@@ -78,10 +78,10 @@
                 "original": "https://s3.amazonaws.com/criterion-production/product_images/1877-48de0a1fa166375e5c29008f57be3a14/rbztsW1GKvPEC5vTna3sbQdpYeG9Ro_original.jpg"
             },
             "title": "3 Films by Louis Malle",
-            "director": "",
-            "country": "",
-            "year": "",
-            "duration_minutes": "",
+            "director": "Louis Malle",
+            "country": "France",
+            "year": "2006",
+            "duration_minutes": "611",
             "color": "",
             "aspect_ratio": "",
             "language": "",
