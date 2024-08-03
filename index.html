@@ -29,11 +29,25 @@
         border: 1px solid #000;
         padding: 8px;
     }
+
+    td.type,
+    td.spine_\# {
+        text-align: center;
+    }
+    div.external_icons {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    div.external_icons img {
+        margin: 4px;
+        width: 32px;
+    }
     </style>
 </head>
 <body>
-
-<!-- <div id="plaintext-data-container"></div> -->
 
 <div id="table-container"></div>
 
@@ -56,9 +70,18 @@ async function fetchData() {
 }
 
 
-fetchData().then(data => {
+function icons(key) {
 
-});
+    var icons = {
+        "imdb": "imdb.svg",
+        "wikipedia": "wikipedia.svg",
+        "wikidata": "wikidata.svg",
+        "icheckmovies": "",
+        "letterboxd": ""
+    }
+
+    return icons[key];
+}
 
 
 function createTable(data) {
@@ -66,12 +89,12 @@ function createTable(data) {
     const thead = document.createElement('thead');
     const tbody = document.createElement('tbody');
 
-    const headers = ['Cover', 'Type', 'Format', 'URL', 'Spine #', 'Title', 'Director', 'Country', 'Year', 'Duration', 'Color', 'Aspect Ratio', 'Language', 'External'];
+    const headers = ['Cover', 'Type', 'Format', 'URL', 'Spine #', 'Title', 'Director', 'Country', 'Year', 'Duration<br><span>minutes</span>', 'Color', 'Aspect Ratio', 'Language', 'External'];
     const headerRow = document.createElement('tr');
 
     headers.forEach(header => {
         const th = document.createElement('th');
-        th.textContent = header;
+        th.innerHTML = header;
         headerRow.appendChild(th);
     });
 
@@ -88,20 +111,35 @@ function createTable(data) {
 
         const fields = ['type', 'format', 'url', 'spine_#', 'title', 'director', 'country', 'year', 'duration', 'color', 'aspect_ratio', 'language'];
         fields.forEach(field => {
+
+            if (field == `country`) {
+                entry[field] = entry[field].replace(/,$/, ``);
+            }
+
             const td = document.createElement('td');
             td.textContent = entry[field];
+            td.className = field;
             dataRow.appendChild(td);
         });
 
         // External links (icons)
         const externalCell = document.createElement('td');
+        const externalCellDiv = document.createElement('div');
+              externalCellDiv.className = `external_icons`;
+              externalCell.appendChild(externalCellDiv);
         const externalLinks = entry.external;
-        for (const key in externalLinks) {
-            if (externalLinks[key]) {
-                const icon = document.createElement('img');
-                icon.src = `path_to_icon/${key}.png`; // Replace with actual icon paths
-                icon.alt = key;
-                externalCell.appendChild(icon);
+        for ([key, value] of Object.entries(externalLinks)) {
+            if (value) {
+                const icon_a = document.createElement('a');
+                      icon_a.href = value;
+                      icon_a.target = `_blank`;
+
+                const icon_img = document.createElement('img');
+                      icon_img.src = `icons/${icons(key)}`; // Replace with actual icon paths
+                      icon_img.alt = key;
+
+                icon_a.appendChild(icon_img);
+                externalCellDiv.appendChild(icon_a);
             }
         }
         dataRow.appendChild(externalCell);
