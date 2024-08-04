@@ -304,7 +304,7 @@
             "duration_minutes": "114",
             "color": "Color",
             "aspect_ratio": "1.78:1",
-            "language": "",
+            "language": " English",
             "spine_#": "956",
             "external": {
                 "imdb": "https://www.imdb.com/title/tt6777170/",
@@ -317,7 +317,7 @@
         },
         {
             "type": "film",
-            "format": "",
+            "format": "BLU-RAY 1 DISC SRP $39.95, DVD 1 DISC SRP $29.95",
             "url": "https://www.criterion.com/films/234-the-39-steps",
             "cover": {
                 "artist": "F. Ron Miller",
