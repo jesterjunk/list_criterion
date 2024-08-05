@@ -26,12 +26,8 @@
                 "wikipedia": "https://en.wikipedia.org/wiki/Two_or_Three_Things_I_Know_About_Her",
                 "wikidata": "https://www.wikidata.org/wiki/Q232217",
                 "icheckmovies": "https://icheckmovies.com/movies/2+ou+3+choses+que+je+sais+delle/",
-<<<<<<< HEAD
                 "letterboxd": "https://letterboxd.com/film/2-or-3-things-i-know-about-her/",
                 "tmdb": "https://www.themoviedb.org/movie/8074-2-ou-3-choses-que-je-sais-d-elle"
-=======
-                "letterboxd": "https://letterboxd.com/film/2-or-3-things-i-know-about-her/"
->>>>>>> 18f3ebd9592066b75da60da89f9fccfcfa0a0ef9
             },
             "mpaa": "Not Rated"
         },
@@ -61,12 +57,8 @@
                 "wikipedia": "https://en.wikipedia.org/wiki/3:10_to_Yuma_(1957_film)",
                 "wikidata": "https://www.wikidata.org/wiki/Q247130",
                 "icheckmovies": "https://icheckmovies.com/movies/310+to+yuma-1957-1/",
-<<<<<<< HEAD
                 "letterboxd": "https://letterboxd.com/film/310-to-yuma/",
                 "tmdb": "https://www.themoviedb.org/movie/14168-3-10-to-yuma"
-=======
-                "letterboxd": "https://letterboxd.com/film/310-to-yuma/"
->>>>>>> 18f3ebd9592066b75da60da89f9fccfcfa0a0ef9
             },
             "mpaa": "Approved"
         },
@@ -163,11 +155,7 @@
         {
             "type": "film",
             "format": "BLU-RAY 1 DISC SRP $39.95, DVD 1 DISC SRP $39.95",
-<<<<<<< HEAD
             "criterion_url": "https://www.criterion.com/films/712-3-women",
-=======
-            "url": "https://www.criterion.com/films/712-3-women",
->>>>>>> 18f3ebd9592066b75da60da89f9fccfcfa0a0ef9
             "cover": {
                 "artist": "Michael Boland",
                 "thumbnail": "https://s3.amazonaws.com/criterion-production/films/75466150cfc0b49b10f051e0c239f3fc/1rrp8R9m37AAxe9ctq9TFKwyYOQ8jW_thumbnail.jpg",
@@ -190,12 +178,8 @@
                 "wikipedia": "https://en.wikipedia.org/wiki/3_Women",
                 "wikidata": "https://www.wikidata.org/wiki/Q669622",
                 "icheckmovies": "https://icheckmovies.com/movies/3+women/",
-<<<<<<< HEAD
                 "letterboxd": "https://letterboxd.com/film/3-women/",
                 "tmdb": "https://www.themoviedb.org/movie/41662-3-women"
-=======
-                "letterboxd": "https://letterboxd.com/film/3-women/"
->>>>>>> 18f3ebd9592066b75da60da89f9fccfcfa0a0ef9
             },
             "mpaa": "PG"
         },
@@ -232,11 +216,7 @@
         {
             "type": "film",
             "format": "BLU-RAY 1 DISC SRP $39.95, DVD 2 DISCS SRP $29.95",
-<<<<<<< HEAD
             "criterion_url": "https://www.criterion.com/films/28617-4-months-3-weeks-and-2-days",
-=======
-            "url": "https://www.criterion.com/films/28617-4-months-3-weeks-and-2-days",
->>>>>>> 18f3ebd9592066b75da60da89f9fccfcfa0a0ef9
             "cover": {
                 "artist": "Steve Chow",
                 "thumbnail": "https://s3.amazonaws.com/criterion-production/films/65395fe8adf90ac719ea54fb460176fa/l2Q2n24ks84HZnVyuZvxqzIJk55lgR_thumbnail.jpg",
@@ -259,23 +239,15 @@
                 "wikipedia": "https://en.wikipedia.org/wiki/4_Months,_3_Weeks_and_2_Days",
                 "wikidata": "https://www.wikidata.org/wiki/Q238245",
                 "icheckmovies": "https://icheckmovies.com/movies/4+luni+3+saptamani+si+2+zile/",
-<<<<<<< HEAD
                 "letterboxd": "https://letterboxd.com/film/4-months-3-weeks-and-2-days/",
                 "tmdb": "https://www.themoviedb.org/movie/2009-4-luni-3-saptamini-i-2-zile"
-=======
-                "letterboxd": "https://letterboxd.com/film/4-months-3-weeks-and-2-days/"
->>>>>>> 18f3ebd9592066b75da60da89f9fccfcfa0a0ef9
             },
             "mpaa": "Not Rated"
         },
         {
             "type": "film",
             "format": "BLU-RAY 1 DISC SRP $39.95, DVD 2 DISCS SRP $39.95",
-<<<<<<< HEAD
             "criterion_url": "https://www.criterion.com/films/150-8-1-2",
-=======
-            "url": "https://www.criterion.com/films/150-8-1-2",
->>>>>>> 18f3ebd9592066b75da60da89f9fccfcfa0a0ef9
             "cover": {
                 "artist": "Lucien S. Y. Yang",
                 "thumbnail": "https://s3.amazonaws.com/criterion-production/films/2ae55be0d1938dcd30082006b5108053/EBSPG1J9ip2HjvJtUmzlDGLM9EtTFX_thumbnail.jpg",
@@ -298,23 +270,15 @@
                 "wikipedia": "https://en.wikipedia.org/wiki/8%C2%BD",
                 "wikidata": "https://www.wikidata.org/wiki/Q12018",
                 "icheckmovies": "https://icheckmovies.com/movies/8half/",
-<<<<<<< HEAD
                 "letterboxd": "https://letterboxd.com/film/8-half/",
                 "tmdb": "https://www.themoviedb.org/movie/422-8"
-=======
-                "letterboxd": "https://letterboxd.com/film/8-half/"
->>>>>>> 18f3ebd9592066b75da60da89f9fccfcfa0a0ef9
             },
             "mpaa": "Not Rated"
         },
         {
             "type": "film",
             "format": "BLU-RAY 1 DISC SRP $39.95, DVD 2 DISCS SRP $29.95",
-<<<<<<< HEAD
             "criterion_url": "https://www.criterion.com/films/27871-12-angry-men",
-=======
-            "url": "https://www.criterion.com/films/27871-12-angry-men",
->>>>>>> 18f3ebd9592066b75da60da89f9fccfcfa0a0ef9
             "cover": {
                 "artist": "illustration by Sean Phillips, design by Eric Skillman",
                 "thumbnail": "https://s3.amazonaws.com/criterion-production/films/b64d8d6785c12ae24b029f8b625c3c1a/PMLyOniHrRG3nyansZSwJxghltbxsC_thumbnail.jpg",
@@ -337,23 +301,15 @@
                 "wikipedia": "https://en.wikipedia.org/wiki/12_Angry_Men_(1957_film)",
                 "wikidata": "https://www.wikidata.org/wiki/Q2345",
                 "icheckmovies": "https://icheckmovies.com/movies/12+angry+men/",
-<<<<<<< HEAD
                 "letterboxd": "https://letterboxd.com/film/12-angry-men/",
                 "tmdb": "https://www.themoviedb.org/movie/389-12-angry-men"
-=======
-                "letterboxd": "https://letterboxd.com/film/12-angry-men/"
->>>>>>> 18f3ebd9592066b75da60da89f9fccfcfa0a0ef9
             },
             "mpaa": "Approved"
         },
         {
             "type": "film",
             "format": "BLU-RAY 1 DISC SRP $39.95, DVD 1 DISC SRP $29.95",
-<<<<<<< HEAD
             "criterion_url": "https://www.criterion.com/films/29399-24-frames",
-=======
-            "url": "https://www.criterion.com/films/29399-24-frames",
->>>>>>> 18f3ebd9592066b75da60da89f9fccfcfa0a0ef9
             "cover": {
                 "artist": "Sarah Habibi",
                 "thumbnail": "https://s3.amazonaws.com/criterion-production/films/22cc8506c3dcd5e77e2d68c09b5f288b/lbWguDGRXPyIVW9oJ1BLa2f1GSAG10_thumbnail.jpg",
@@ -376,23 +332,15 @@
                 "wikipedia": "https://en.wikipedia.org/wiki/24_Frames_(film)",
                 "wikidata": "https://www.wikidata.org/wiki/Q29413353",
                 "icheckmovies": "https://icheckmovies.com/movies/24+frames/",
-<<<<<<< HEAD
                 "letterboxd": "https://letterboxd.com/film/24-frames/",
                 "tmdb": "https://www.themoviedb.org/movie/377269-24-frames"
-=======
-                "letterboxd": "https://letterboxd.com/film/24-frames/"
->>>>>>> 18f3ebd9592066b75da60da89f9fccfcfa0a0ef9
             },
             "mpaa": "Not Rated"
         },
         {
             "type": "film",
             "format": "BLU-RAY 1 DISC SRP $39.95, DVD 1 DISC SRP $29.95",
-<<<<<<< HEAD
             "criterion_url": "https://www.criterion.com/films/234-the-39-steps",
-=======
-            "url": "https://www.criterion.com/films/234-the-39-steps",
->>>>>>> 18f3ebd9592066b75da60da89f9fccfcfa0a0ef9
             "cover": {
                 "artist": "F. Ron Miller",
                 "thumbnail": "https://s3.amazonaws.com/criterion-production/films/aacbf709cba74e607ae657b7ea6ff1cf/2jsGvFmN8GvcK82SeP32fOu0YpUx1i_thumbnail.jpg",
@@ -415,12 +363,8 @@
                 "wikipedia": "https://en.wikipedia.org/wiki/The_39_Steps_(1935_film)",
                 "wikidata": "https://www.wikidata.org/wiki/Q501105",
                 "icheckmovies": "https://icheckmovies.com/movies/the+39+steps/",
-<<<<<<< HEAD
                 "letterboxd": "https://letterboxd.com/film/the-39-steps/",
                 "tmdb": "https://www.themoviedb.org/movie/260-the-39-steps"
-=======
-                "letterboxd": "https://letterboxd.com/film/the-39-steps/"
->>>>>>> 18f3ebd9592066b75da60da89f9fccfcfa0a0ef9
             },
             "mpaa": "Approved"
         },
@@ -450,12 +394,8 @@
                 "wikipedia": "https://en.wikipedia.org/wiki/45_Years",
                 "wikidata": "https://www.wikidata.org/wiki/Q18642424",
                 "icheckmovies": "https://icheckmovies.com/movies/45+years/",
-<<<<<<< HEAD
                 "letterboxd": "https://letterboxd.com/film/45-years/",
                 "tmdb": "https://www.themoviedb.org/movie/311291-45-years"
-=======
-                "letterboxd": "https://letterboxd.com/film/45-years/"
->>>>>>> 18f3ebd9592066b75da60da89f9fccfcfa0a0ef9
             },
             "mpaa": "R"
         },
@@ -503,11 +443,7 @@
             },
             "title": "71 Fragments of a Chronology of Chance",
             "director": "Michael Haneke",
-<<<<<<< HEAD
             "country": "Germany, Austria",
-=======
-            "country": "Germany",
->>>>>>> 18f3ebd9592066b75da60da89f9fccfcfa0a0ef9
             "year": "1994",
             "duration_minutes": "99",
             "color": "Color",
