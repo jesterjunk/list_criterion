@@ -124,14 +124,14 @@ function more_info(dataRow, entry) {
 
     const td = document.createElement('td');
           td.innerHTML = `
-${entry.type ? `${entry.type}` : ``}
-${entry.country ? `<br><br>${entry.country.replace(/,$/, ``)}` : ``}
+${entry.type ? `${entry.type}<br>` : ``}
+${entry.country ? `<br>${entry.country.replace(/,$/, ``)}` : ``}
 ${entry.year ? `<br>${entry.year}` : ``}
 ${entry.duration_minutes ? `<br>\n${entry.duration_minutes} minutes` : ``}
 ${entry.color ? `<br>\n${entry.color}` : ``}
 ${entry.aspect_ratio ? `<br>\n${entry.aspect_ratio}` : ``}
 ${entry.language ? `<br>\n${entry.language}` : ``}
-${entry[`spine_#`] ? `<br>\n<b>Spine #${entry[`spine_#`]}</b>` : ``}
+${entry[`spine_#`] && entry[`spine_#`] != `0` ? `<br>\n<b>Spine #${entry[`spine_#`]}</b>` : ``}
 `;
           td.className = `more_info`;
 
@@ -143,7 +143,7 @@ ${entry[`spine_#`] ? `<br>\n<b>Spine #${entry[`spine_#`]}</b>` : ``}
 function format(dataRow, entry) {
 
     const td = document.createElement('td');
-          td.innerHTML = entry.format.replace(`, `, `<br><br><br>`).replace(` SRP`, `<br>SRP`).replace(`DVD `, `DVD<br>`).replace(`BLU-RAY `, `BLU-RAY<br>`).replace(`DISC `, `DISC<br>`);
+          td.innerHTML = entry.format && entry.format != `0` ? entry.format.replace(`, `, `<br><br><br>`).replace(` SRP`, `<br>SRP`).replace(`DVD `, `DVD<br>`).replace(`BLU-RAY `, `BLU-RAY<br>`).replace(`DISC `, `DISC<br>`) : ``;
           td.className = `format`;
           td.style.whiteSpace = `pre`;
           td.style.textAlign = `center`;

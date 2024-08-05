@@ -115,7 +115,7 @@ function type(dataRow, entry) {
 function format(dataRow, entry) {
 
     const td = document.createElement('td');
-          td.innerHTML = entry.format.replace(`, `, `<br><br>`).replace(` SRP`, `<br>SRP`).replace(`DVD `, `DVD<br>`).replace(`BLU-RAY `, `BLU-RAY<br>`).replace(`DISC `, `DISC<br>`);
+          td.innerHTML = entry.format && entry.format != `0` ? entry.format.replace(`, `, `<br><br>`).replace(` SRP`, `<br>SRP`).replace(`DVD `, `DVD<br>`).replace(`BLU-RAY `, `BLU-RAY<br>`).replace(`DISC `, `DISC<br>`) : ``;
           td.className = `format`;
           td.style.whiteSpace = `pre`;
           td.style.textAlign = `center`;
@@ -128,7 +128,7 @@ function format(dataRow, entry) {
 function spine(dataRow, entry) {
 
     const td = document.createElement('td');
-          td.textContent = entry['spine_#'];
+          td.textContent = entry['spine_#'] && entry['spine_#'] != `0` ? entry['spine_#'] : ``;
           td.className = `spine_#`;
 
     dataRow.appendChild(td);
