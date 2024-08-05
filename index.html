@@ -103,7 +103,7 @@ function cover(dataRow, entry) {
 function title(dataRow, entry) {
 
     const a = document.createElement('a');
-          a.href = entry.url;
+          a.href = entry.criterion_url;
           a.textContent = entry.title;
           a.style.fontWeight = `bold`;
           a.target = `_blank`;
