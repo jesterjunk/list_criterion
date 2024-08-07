@@ -108,12 +108,16 @@ function title(dataRow, entry) {
           a.style.fontWeight = `bold`;
           a.target = `_blank`;
 
+    const directors = [];
+
+    entry.director.forEach(director => {
+        directors.push(`<a href="${director.url}">${director.name}</a>`);
+    })
+
     const td = document.createElement('td');
           td.className = `title`;
           td.appendChild(a);
-          td.innerHTML += `
-${entry.director ? `<br><br>Directed by ${entry.director}` : ``}
-`;
+          td.innerHTML += `<br><br>Directed by ${directors}`;
 
     dataRow.appendChild(td);
 }
@@ -125,7 +129,7 @@ function more_info(dataRow, entry) {
     const td = document.createElement('td');
           td.innerHTML = `
 ${entry.type ? `${entry.type}<br>` : ``}
-${entry.country ? `<br>${entry.country.replace(/,$/, ``)}` : ``}
+${entry.country ? `<br>${entry.country}` : ``}
 ${entry.year ? `<br>${entry.year}` : ``}
 ${entry.duration_minutes ? `<br>\n${entry.duration_minutes} minutes` : ``}
 ${entry.color ? `<br>\n${entry.color}` : ``}

@@ -153,8 +153,14 @@ function title(dataRow, entry) {
 // director
 function director(dataRow, entry) {
 
+    const directors = [];
+
+    entry.director.forEach(director => {
+        directors.push(`<a href="${director.url}">${director.name}</a>`);
+    })
+
     const td = document.createElement('td');
-          td.textContent = entry.director;
+          td.innerHTML = directors.join(`, `);
           td.className = `director`;
           td.style.textAlign = `center`;
 
@@ -166,7 +172,7 @@ function director(dataRow, entry) {
 function country(dataRow, entry) {
 
     const td = document.createElement('td');
-          td.textContent = entry.country.replace(/,$/, ``);
+          td.textContent = entry.country;
           td.className = `country`;
           td.style.textAlign = `center`;
 
