@@ -103,7 +103,7 @@ function cover(dataRow, entry) {
 function title(dataRow, entry) {
 
     const a = document.createElement('a');
-          a.href = entry.criterion_url;
+          a.href = entry.url;
           a.textContent = entry.title;
           a.style.fontWeight = `bold`;
           a.target = `_blank`;
@@ -146,8 +146,20 @@ ${entry[`spine_number`] && entry[`spine_number`] != `0` ? `<br>\n<b>Spine #${ent
 // format
 function format(dataRow, entry) {
 
+
+    var purchase_options = "";
+
+    entry.purchase_option.forEach(purchase_option => {
+
+        if (purchase_option.oop) {
+            purchase_options += `<strong>OUT OF PRINT</strong><br>`
+        }
+
+        purchase_options += `${purchase_option.format}<br>${purchase_option.discs}<br>SRP ${purchase_option.srp}<br><br>`
+    })
+
     const td = document.createElement('td');
-          td.innerHTML = entry.format && entry.format != `0` ? entry.format.replace(`, `, `<br><br><br>`).replace(` SRP`, `<br>SRP`).replace(`DVD `, `DVD<br>`).replace(`BLU-RAY `, `BLU-RAY<br>`).replace(`DISC `, `DISC<br>`) : ``;
+          td.innerHTML = purchase_options.replace(/<br><br>$/, ``);
           td.className = `format`;
           td.style.whiteSpace = `pre`;
           td.style.textAlign = `center`;
