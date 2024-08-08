@@ -42,7 +42,7 @@
     }
 
     td.type,
-    td.spine_\# {
+    td.spine_number {
         text-align: center;
     }
     td.external_icons {
@@ -124,12 +124,12 @@ function format(dataRow, entry) {
 }
 
 
-// spine_#
+// spine_number
 function spine(dataRow, entry) {
 
     const td = document.createElement('td');
-          td.textContent = entry['spine_#'] && entry['spine_#'] != `0` ? entry['spine_#'] : ``;
-          td.className = `spine_#`;
+          td.textContent = entry['spine_number'] && entry['spine_number'] != `0` ? entry['spine_number'] : ``;
+          td.className = `spine_number`;
 
     dataRow.appendChild(td);
 }

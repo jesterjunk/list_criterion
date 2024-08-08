@@ -41,7 +41,7 @@
 
 
     td.type,
-    td.spine_\# {
+    td.spine_number {
         text-align: center;
     }
     td.external_icons {
@@ -135,7 +135,7 @@ ${entry.duration_minutes ? `<br>\n${entry.duration_minutes} minutes` : ``}
 ${entry.color ? `<br>\n${entry.color}` : ``}
 ${entry.aspect_ratio ? `<br>\n${entry.aspect_ratio}` : ``}
 ${entry.language ? `<br>\n${entry.language}` : ``}
-${entry[`spine_#`] && entry[`spine_#`] != `0` ? `<br>\n<b>Spine #${entry[`spine_#`]}</b>` : ``}
+${entry[`spine_number`] && entry[`spine_number`] != `0` ? `<br>\n<b>Spine #${entry[`spine_number`]}</b>` : ``}
 `;
           td.className = `more_info`;
 
