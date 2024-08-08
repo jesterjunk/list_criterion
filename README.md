@@ -1,55 +1,20 @@
-https://jesterjunk.github.io/list_criterion/data.json
-
-    1697 entries
+<h2><br><br>list_criterion</h2>
 
 https://jesterjunk.github.io/list_criterion/
 
 https://jesterjunk.github.io/list_criterion/data_entry.html
 
 
-    counts by first character of titles
 
-    title: "1       3
-    title: "2       3
-    title: "3       5
-    title: "4       4
-    title: "7       1
-    title: "8       1
-    title: ".       1
-    title: "A     107
-    title: "B      94
-    title: "C      69
-    title: "D      69
-    title: "E      85
-    title: "F      51
-    title: "G      41
-    title: "H      40
-    title: "I      61
-    title: "J      25
-    title: "K      22
-    title: "L     117
-    title: "M     104
-    title: "N      28
-    title: "O      32
-    title: "P      61
-    title: "Q       4
-    title: "R      43
-    title: "S     104
-    title: "T     411
-    title: "U      11
-    title: "V      18
-    title: "W      44
-    title: "X       1
-    title: "Y       8
-    title: "Z      23
-    title: "¡       1
-    title: "À       3
-    title: "Å       1
-    title: "’       1
-                 1697
+<h3><br><br>data.json</h3>
+
+https://jesterjunk.github.io/list_criterion/data.json
+
+    1697 entries
 
 
-### schema reference
+<h3><br><br>data.json schema reference</h3>
+
 ```javascript
 {
   "entries": [
@@ -116,4 +81,48 @@ https://jesterjunk.github.io/list_criterion/data_entry.html
 }
 
 // "films_in_boxset" is only included if "type" is "boxset"
+```
+
+
+<h3><br><br>counts by first character of titles</h3>
+
+```
+    title: "1       3
+    title: "2       3
+    title: "3       5
+    title: "4       4
+    title: "7       1
+    title: "8       1
+    title: ".       1
+    title: "A     107
+    title: "B      94
+    title: "C      69
+    title: "D      69
+    title: "E      85
+    title: "F      51
+    title: "G      41
+    title: "H      40
+    title: "I      61
+    title: "J      25
+    title: "K      22
+    title: "L     117
+    title: "M     104
+    title: "N      28
+    title: "O      32
+    title: "P      61
+    title: "Q       4
+    title: "R      43
+    title: "S     104
+    title: "T     411
+    title: "U      11
+    title: "V      18
+    title: "W      44
+    title: "X       1
+    title: "Y       8
+    title: "Z      23
+    title: "¡       1
+    title: "À       3
+    title: "Å       1
+    title: "’       1
+                 1697
 ```
