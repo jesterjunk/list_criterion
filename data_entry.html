@@ -47,12 +47,13 @@
     }
     td.external_icons {
         padding: 0 !important;
+        width: 100px;
     }
     td.external_icons div {
         display: flex;
-        flex-direction: column;
-/*        flex-wrap: wrap;*/
-        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
         align-items: center;
     }
     td.external_icons div img {
@@ -255,12 +256,13 @@ function language(dataRow, entry) {
 function external(dataRow, entry) {
 
     var icons = {
-        "imdb": "imdb.svg",
-        "wikipedia": "wikipedia.svg",
-        "wikidata": "wikidata_white.svg",
-        "icheckmovies": "icheckmovies.svg",
-        "letterboxd": "letterboxd-decal-dots-neg-rgb-optimized.svg",
-        "blu-ray": "blu-ray.com.svg"
+        "imdb": "imdb.com.svg",
+        "themoviedb": "themoviedb.org.svg",
+        "wikipedia": "wikipedia.org.svg",
+        "wikidata": "wikidata.org.svg",
+        "icheckmovies": "icheckmovies.com.svg",
+        "letterboxd": "letterboxd.com.svg",
+        "blu-ray": "blu-ray.com.svg",
     }
 
     // External links (icons)
